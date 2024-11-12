@@ -34,7 +34,7 @@ export default function NotFound() {
                     Page Not Found
                 </h1>
                 <p className="mt-2 text-lg text-gray-500 dark:text-gray-400">
-                    Oops! The page you're looking for doesn't exist or has been moved.
+                    Oops! The page you&apos;re looking for doesn&apos;t exist or has been moved.
                 </p>
                 <div className="mt-8">
                     <Button asChild className="bg-[#0070c0] hover:bg-[#005a9e] dark:bg-[#00a2ff] dark:hover:bg-[#0081cc] text-white inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm transition-all duration-300 ease-in-out transform hover:scale-105">

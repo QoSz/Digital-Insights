@@ -17,7 +17,6 @@ import {
 } from "@/components/ui/form"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
-import { useToast } from '@/hooks/use-toast'
 
 const formSchema = z.object({
     name: z.string().min(2, {
@@ -49,7 +48,6 @@ const formFieldVariant = {
 }
 
 export default function MessageUs() {
-    const { toast } = useToast()
     const [isSubmitting, setIsSubmitting] = useState(false)
 
     const form = useForm<z.infer<typeof formSchema>>({
@@ -69,10 +67,6 @@ export default function MessageUs() {
         setTimeout(() => {
             console.log(values)
             setIsSubmitting(false)
-            toast({
-                title: "Message Sent",
-                description: "We'll get back to you as soon as possible.",
-            })
             form.reset()
         }, 2000)
     }

@@ -3,17 +3,25 @@
 import { useState } from "react"
 import Link from "next/link"
 import { useTheme } from "next-themes"
-import { MenuIcon } from "lucide-react"
+import { 
+    MenuIcon, 
+    HomeIcon, 
+    InfoIcon, 
+    WrenchIcon, 
+    LightbulbIcon, 
+    BuildingIcon, 
+    PhoneIcon 
+} from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
 import { Switch } from "@/components/ui/switch"
 
 const links = [
-    { href: "/", label: "Home" },
-    { href: "/about", label: "About Us" },
-    { href: "/services", label: "Services" },
-    { href: "/solutions", label: "Solutions" },
-    { href: "/industries", label: "Industries" },
+    { href: "/", label: "Home", icon: <HomeIcon className="h-4 w-4 mr-2" /> },
+    { href: "/about", label: "About Us", icon: <InfoIcon className="h-4 w-4 mr-2" /> },
+    { href: "/services", label: "Services", icon: <WrenchIcon className="h-4 w-4 mr-2" /> },
+    { href: "/solutions", label: "Solutions", icon: <LightbulbIcon className="h-4 w-4 mr-2" /> },
+    { href: "/industries", label: "Industries", icon: <BuildingIcon className="h-4 w-4 mr-2" /> },
 ]
 
 export function Navigation() {
@@ -31,8 +39,9 @@ export function Navigation() {
                     </Link>
                     <Link
                         href="/contact"
-                        className="hidden md:block text-base font-medium transition-colors hover:text-foreground/80 text-foreground/60"
+                        className="hidden md:flex items-center text-base font-medium transition-colors hover:text-foreground/80 text-foreground/60"
                     >
+                        <PhoneIcon className="h-4 w-4 mr-2" />
                         Contact
                     </Link>
                 </div>
@@ -41,8 +50,9 @@ export function Navigation() {
                         <Link
                             key={link.href}
                             href={link.href}
-                            className="transition-colors hover:text-foreground/80 text-foreground/60"
+                            className="flex items-center transition-colors hover:text-foreground/80 text-foreground/60"
                         >
+                            {link.icon}
                             {link.label}
                         </Link>
                     ))}
@@ -72,13 +82,18 @@ export function Navigation() {
                                 <span className="text-lg font-bold text-[#0070c0] ml-1">Insights</span>
                             </Link>
                             <nav className="flex flex-col space-y-3">
-                                {[...links, { href: "/contact", label: "Contact" }].map((link) => (
+                                {[...links, { 
+                                    href: "/contact", 
+                                    label: "Contact",
+                                    icon: <PhoneIcon className="h-4 w-4 mr-2" />
+                                }].map((link) => (
                                     <Link
                                         key={link.href}
                                         href={link.href}
-                                        className="text-base font-medium text-muted-foreground transition-colors hover:text-foreground"
+                                        className="flex items-center text-base font-medium text-muted-foreground transition-colors hover:text-foreground"
                                         onClick={() => setIsOpen(false)}
                                     >
+                                        {link.icon}
                                         {link.label}
                                     </Link>
                                 ))}
@@ -100,7 +115,6 @@ function ThemeToggle() {
             checked={theme === "dark"}
             onCheckedChange={() => setTheme(theme === "light" ? "dark" : "light")}
             className="relative inline-flex h-6 w-11"
-        >
-        </Switch>
+        />
     )
 }

@@ -105,7 +105,7 @@ export default function ContactUs() {
     }
 
     return (
-        <section className="py-16 bg-white">
+        <section className="py-16 bg-white dark:bg-gray-900">
             <div className="container mx-auto px-4 sm:px-6 lg:px-8">
                 <motion.div
                     initial="hidden"
@@ -115,12 +115,12 @@ export default function ContactUs() {
                     className="max-w-4xl mx-auto"
                 >
                     <motion.h2
-                        className="text-3xl font-bold text-center mb-4 text-[#0070c0]"
+                        className="text-3xl font-bold text-center mb-4 text-[#0070c0] dark:text-gray-100"
                     >
                         Contact Us
                     </motion.h2>
                     <motion.p
-                        className="text-center text-gray-600 mb-12 max-w-2xl mx-auto"
+                        className="text-center text-gray-600 dark:text-gray-400 mb-12 max-w-2xl mx-auto"
                     >
                         Ready to accelerate your business outcomes? Get in touch with our team of experts.
                     </motion.p>
@@ -134,20 +134,20 @@ export default function ContactUs() {
                                 variants={cardHoverVariant} 
                                 whileHover="hover"
                             >
-                                <Card className="bg-gray-50">
+                                <Card className="bg-gray-50 dark:bg-gray-800">
                                     <CardContent className="p-6">
                                         <div className="flex items-start space-x-4">
                                             <div className="p-2 bg-[#0070c0]/10 rounded-lg">
-                                                <info.icon className="h-6 w-6 text-[#0070c0]" />
+                                                <info.icon className="h-6 w-6 text-[#0070c0] dark:text-gray-100" />
                                             </div>
                                             <div>
-                                                <h3 className="font-semibold text-gray-900 mb-2">
+                                                <h3 className="font-semibold text-gray-900 dark:text-gray-100 mb-2">
                                                     {info.title}
                                                 </h3>
                                                 {Array.isArray(info.content) ? (
                                                     <div className="space-y-1">
                                                         {info.content.map((item, idx) => (
-                                                            <p key={idx} className="text-gray-600 text-sm">
+                                                            <p key={idx} className="text-gray-600 dark:text-gray-300 text-sm">
                                                                 {item}
                                                             </p>
                                                         ))}
@@ -169,9 +169,9 @@ export default function ContactUs() {
                     </motion.div>
 
                     <motion.div
-                        className="bg-gray-50 rounded-lg p-6 shadow-lg"
+                        className="bg-gray-50 dark:bg-gray-800 rounded-lg p-6 shadow-lg"
                     >
-                        <h3 className="text-2xl font-semibold text-[#0070c0] mb-6 text-center">Send Us a Message</h3>
+                        <h3 className="text-2xl font-semibold text-[#0070c0] mb-6 text-center dark:text-gray-100">Send Us a Message</h3>
                         <Form {...form}>
                             <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
                                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
@@ -182,7 +182,7 @@ export default function ContactUs() {
                                             <FormItem>
                                                 <FormLabel>Name</FormLabel>
                                                 <FormControl>
-                                                    <Input placeholder="John Doe" {...field} />
+                                                    <Input placeholder="John Doe" className="bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100" {...field} />
                                                 </FormControl>
                                                 <FormMessage />
                                             </FormItem>
@@ -195,7 +195,7 @@ export default function ContactUs() {
                                             <FormItem>
                                                 <FormLabel>Email</FormLabel>
                                                 <FormControl>
-                                                    <Input placeholder="john@example.com" {...field} />
+                                                    <Input placeholder="john@example.com" className="bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100" {...field} />
                                                 </FormControl>
                                                 <FormMessage />
                                             </FormItem>

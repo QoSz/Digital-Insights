@@ -38,7 +38,7 @@ export default function WhoWeAre() {
                     variants={fadeInUp}
                     className="text-center mb-12"
                 >
-                    <h2 className="text-3xl font-bold text-[#0070c0] mb-6">What We Do</h2>
+                    <h2 className="text-3xl font-bold text-[#0070c0] dark:text-white mb-6">What We Do</h2>
                     <p className="text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
                         We provide Management Consulting for Board, C-Suite and Senior Executives. Our expertise lies in crafting and executing strategies that help accelerate business outcomes.
                     </p>

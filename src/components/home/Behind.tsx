@@ -39,7 +39,7 @@ export default function Behind() {
                     viewport={{ once: true }}
                     variants={fadeUpVariant}
                     transition={{ duration: 0.5 }}
-                    className="text-3xl font-bold mb-8 text-center text-[#0070c0]"
+                    className="text-3xl font-bold mb-8 text-center text-[#0070c0] dark:text-white"
                 >
                     Who is Behind DigitAI Insight
                 </motion.h2>

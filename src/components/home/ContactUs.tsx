@@ -210,7 +210,7 @@ export default function ContactUs() {
                                             <FormItem>
                                                 <FormLabel>Phone Number</FormLabel>
                                                 <FormControl>
-                                                    <Input placeholder="+1234567890" {...field} />
+                                                    <Input className="bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100" placeholder="+1234567890" {...field} />
                                                 </FormControl>
                                                 <FormMessage />
                                             </FormItem>
@@ -223,7 +223,7 @@ export default function ContactUs() {
                                             <FormItem>
                                                 <FormLabel>Subject</FormLabel>
                                                 <FormControl>
-                                                    <Input placeholder="Inquiry about services" {...field} />
+                                                    <Input className="bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100" placeholder="Inquiry about services" {...field} />
                                                 </FormControl>
                                                 <FormMessage />
                                             </FormItem>
@@ -239,7 +239,7 @@ export default function ContactUs() {
                                             <FormControl>
                                                 <Textarea
                                                     placeholder="Tell us about your project or inquiry..."
-                                                    className="min-h-[150px]"
+                                                    className="min-h-[150px] bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100"
                                                     {...field}
                                                 />
                                             </FormControl>

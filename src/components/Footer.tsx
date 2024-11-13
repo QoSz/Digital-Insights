@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import { Facebook, Twitter, Linkedin, Mail, Phone, Globe, UsersIcon } from 'lucide-react'
-import { HomeIcon, InfoIcon, WrenchIcon, LightbulbIcon, HandshakeIcon } from 'lucide-react'
+import { InfoIcon, WrenchIcon, LightbulbIcon, HandshakeIcon } from 'lucide-react'
 
 const navigationLinks = [
     { href: '#services', label: 'Services', icon: <WrenchIcon className="h-4 w-4 mr-2" /> },

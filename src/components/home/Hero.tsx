@@ -113,7 +113,7 @@ export default function Hero() {
                                 className="relative w-full h-full"
                             >
                                 <Image
-                                    src="https://placehold.co/800x600"
+                                    src="/images/Digital-Transformation.webp"
                                     alt="AI and Digital Transformation"
                                     fill
                                     className="rounded-xl shadow-2xl relative z-10 object-cover"

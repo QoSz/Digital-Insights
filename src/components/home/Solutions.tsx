@@ -2,55 +2,79 @@
 
 import React from 'react'
 import { motion } from 'framer-motion'
-import { ArrowRight, CheckCircle } from 'lucide-react'
-import { Button } from "@/components/ui/button"
+import { CheckCircle } from 'lucide-react'
 
 const solutions = [
     {
-        title: "Innovation & Generative AI Solutions",
-        description: "Implementing cutting-edge AI technologies to drive innovation and business growth.",
+        title: "Generative AI Solutions",
+        description: "Leveraging cutting-edge AI technologies for business transformation.",
         examples: [
-            "Built Generative AI accelerators for Banking, Financial Services, Telecom, Travel, Hospitality, and Contact Center businesses",
-            "Launched a modern AI and Data Analytics Platform across five industries",
-            "Implemented AI-based omni-channel servicing solution, improving speed by 5X and net promoter score by 50%"
+            "Generative accelerators",
+            "Machine and deep learning",
+            "Intelligent Automation",
+            "GenAI workbench – LLMs, RAG, SLMs, Prompt, LLMOps",
+            "Copilot Integrations- AutoDev, Q Developer and Devin"
         ]
     },
     {
-        title: "Multi Hybrid Cloud Solutions",
-        description: "Designing and implementing scalable, flexible cloud infrastructures for modern businesses.",
+        title: "Cloud Computing Solutions",
+        description: "Enabling digital transformation through comprehensive cloud services.",
         examples: [
-            "Designed and implemented public, private, and hybrid cloud platforms",
-            "Modernized business operations through cloud services",
-            "Enabled significant cost reductions and revenue increases through cloud adoption"
+            "Public, private, and hybrid cloud platforms",
+            "Cloud migration and optimization",
+            "Infrastructure as Code (IaC)",
+            "Cloud-native development",
+            "Serverless architectures"
         ]
     },
     {
-        title: "Data & Analytics Solutions",
-        description: "Leveraging data to drive insights, decision-making, and business performance.",
+        title: "Data Engineering & Analytics",
+        description: "Transforming data into actionable insights for business growth.",
         examples: [
-            "Implemented data management and analytics solutions for AI readiness",
-            "Delivered a data-analytics cloud-based digital platform with 10 new products, enabling over $100M in annual revenue",
-            "Built an AI-based Fraud Prevention Platform, improving detection and prevention by 50%"
+            "Data architecture and engineering",
+            "Business intelligence solutions",
+            "Predictive analytics",
+            "Real-time data processing",
+            "Data governance and quality"
         ]
     },
     {
-        title: "Security & Compliance Solutions",
-        description: "Ensuring robust security and regulatory compliance in the digital age.",
+        title: "Cybersecurity and Compliance",
+        description: "Ensuring robust security and regulatory compliance.",
         examples: [
-            "Designed cost-effective and auditable compliance and cybersecurity solutions",
-            "Implemented automation and embedded governance in security processes",
-            "Reduced operational risk and improved compliance across organizations"
+            "Security architecture design",
+            "Compliance frameworks implementation",
+            "Threat detection and prevention",
+            "Security automation",
+            "Risk assessment and management"
         ]
     },
     {
-        title: "Modernization & Automation Solutions",
-        description: "Transforming legacy systems and processes for increased efficiency and competitiveness.",
+        title: "Low Code Development",
+        description: "Accelerating development through low-code platforms.",
         examples: [
-            "Implemented operations modernization and robotics automation",
-            "Delivered intelligent process automation for financial operations",
-            "Achieved $450M annualized Opex savings through innovative digital solutions and process reengineering"
+            "Rapid application development",
+            "Process automation",
+            "Custom workflow solutions",
+            "Integration capabilities",
+            "Citizen developer enablement"
         ]
     }
+]
+
+const industries = [
+    "Financial Services",
+    "Banking",
+    "Healthcare",
+    "Insurance",
+    "Retail",
+    "Public Sector",
+    "Telco",
+    "Automotive",
+    "Manufacturing",
+    "Oil & Gas",
+    "Travel",
+    "Hospitality"
 ]
 
 // Animation variants
@@ -73,41 +97,40 @@ export default function Solutions() {
     return (
         <section className="py-16 bg-gray-50 dark:bg-gray-900">
             <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-                <motion.h2
-                    className="text-3xl font-bold text-center mb-12 text-gray-800 dark:text-gray-100"
+                <motion.div
+                    className="text-center mb-12"
                     initial="hidden"
                     whileInView="visible"
                     viewport={{ once: true }}
                     variants={fadeUpVariant}
-                    transition={{ duration: 0.5 }}
                 >
-                    Our Solutions
-                </motion.h2>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+                    <h2 className="text-3xl font-bold text-[#0070c0] dark:text-gray-100 mb-4">
+                        Solutions we have delivered
+                    </h2>
+                    <p className="text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto italic">
+                        We have driven Digital Transformations in multiple industries by crafting technology enabled solutions utilizing:
+                    </p>
+                </motion.div>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto mb-12">
                     {solutions.map((solution, index) => (
                         <motion.div
                             key={solution.title}
-                            className="bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden h-full flex flex-col"
+                            className="bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden h-full"
                             initial="hidden"
                             whileInView="visible"
                             viewport={{ once: true }}
                             variants={cardVariant}
-                            transition={{ duration: 0.5, delay: index * 0.1 }}
-                            whileHover={{ scale: 1.02 }}
+                            transition={{ duration: 0.3, delay: index * 0.1 }}
+                            whileHover={{ scale: 1.05 }}
                         >
-                            <div className="p-6 flex-grow">
+                            <div className="p-6">
                                 <motion.h3 
                                     variants={fadeUpVariant}
                                     className="text-xl font-semibold mb-4 text-[#0070c0] dark:text-[#00a2ff]"
                                 >
                                     {solution.title}
                                 </motion.h3>
-                                <motion.p 
-                                    variants={fadeUpVariant}
-                                    className="text-gray-600 dark:text-gray-300 mb-6"
-                                >
-                                    {solution.description}
-                                </motion.p>
                                 <ul className="space-y-2">
                                     {solution.examples.map((example, idx) => (
                                         <motion.li 
@@ -122,35 +145,30 @@ export default function Solutions() {
                                     ))}
                                 </ul>
                             </div>
-                            <motion.div 
-                                className="px-6 py-4 bg-gray-50 dark:bg-gray-700 mt-auto"
-                                variants={fadeUpVariant}
-                                transition={{ delay: 0.2 }}
-                            >
-                                <Button 
-                                    className="w-full bg-[#0070c0] hover:bg-[#005a9e] text-white"
-                                >
-                                    Learn More <ArrowRight className="ml-2 h-4 w-4" />
-                                </Button>
-                            </motion.div>
                         </motion.div>
                     ))}
                 </div>
+
                 <motion.div
-                    className="mt-12 text-center"
+                    className="text-center mt-12 p-6 bg-white dark:bg-gray-800 rounded-lg shadow-lg"
                     initial="hidden"
                     whileInView="visible"
                     viewport={{ once: true }}
                     variants={fadeUpVariant}
-                    transition={{ duration: 0.5, delay: 0.3 }}
                 >
-                    <Button 
-                        asChild 
-                        size="lg" 
-                        className="bg-[#0070c0] hover:bg-[#005a9e] text-white"
-                    >
-                        <a href="/contact">Get Started with Our Solutions</a>
-                    </Button>
+                    <h3 className="text-xl font-semibold mb-4 text-[#0070c0] dark:text-[#00a2ff]">Industries We Serve</h3>
+                    <div className="flex flex-wrap justify-center gap-4">
+                        {industries.map((industry, index) => (
+                            <motion.span
+                                key={industry}
+                                variants={fadeUpVariant}
+                                transition={{ delay: index * 0.1 }}
+                                className="px-4 py-2 bg-gray-100 dark:bg-gray-700 rounded-full text-gray-700 dark:text-gray-200 text-sm"
+                            >
+                                {industry}
+                            </motion.span>
+                        ))}
+                    </div>
                 </motion.div>
             </div>
         </section>

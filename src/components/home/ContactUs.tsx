@@ -5,7 +5,7 @@ import { motion } from 'framer-motion'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import * as z from 'zod'
-import { Send } from 'lucide-react'
+import { Send, Mail, Phone, Globe, MapPin } from 'lucide-react'
 import { Button } from "@/components/ui/button"
 import {
     Form,
@@ -17,6 +17,7 @@ import {
 } from "@/components/ui/form"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
+import { Card, CardContent } from "@/components/ui/card"
 
 const formSchema = z.object({
     name: z.string().min(2, {
@@ -36,18 +37,50 @@ const formSchema = z.object({
     }),
 })
 
-// Add animation variants
-const fadeUpVariant = {
-    hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0 }
+const cardHoverVariant = {
+    hover: {
+        scale: 1.02,
+        transition: {
+            type: "spring",
+            stiffness: 300,
+        }
+    }
 }
 
-const formFieldVariant = {
-    hidden: { opacity: 0, x: -20 },
-    visible: { opacity: 1, x: 0 }
-}
+const contactInfo = [
+    {
+        icon: Globe,
+        title: "Website",
+        content: "www.digital-insights.ai",
+        link: "https://www.digital-insights.ai"
+    },
+    {
+        icon: Mail,
+        title: "Email",
+        content: "info@digital-insights.ai",
+        link: "mailto:info@digital-insights.ai"
+    },
+    {
+        icon: Phone,
+        title: "Phone",
+        content: [
+            "US: +1480-225-xxxx",
+            "UAE: +971 4 553 xxxx",
+            "Africa: +254-705-xxxxxx"
+        ]
+    },
+    {
+        icon: MapPin,
+        title: "Global Offices",
+        content: [
+            "Global HQ: Michigan, USA",
+            "Global Business Center: Dubai, UAE",
+            "Global Operations: Nairobi, Kenya"
+        ]
+    }
+]
 
-export default function MessageUs() {
+export default function ContactUs() {
     const [isSubmitting, setIsSubmitting] = useState(false)
 
     const form = useForm<z.infer<typeof formSchema>>({
@@ -72,33 +105,76 @@ export default function MessageUs() {
     }
 
     return (
-        <section className="py-16 bg-gray-50 dark:bg-gray-900">
+        <section className="py-16 bg-white">
             <div className="container mx-auto px-4 sm:px-6 lg:px-8">
                 <motion.div
                     initial="hidden"
                     whileInView="visible"
                     viewport={{ once: true }}
-                    variants={fadeUpVariant}
                     transition={{ duration: 0.5 }}
-                    className="max-w-2xl mx-auto"
+                    className="max-w-4xl mx-auto"
                 >
-                    <motion.h2 
-                        variants={fadeUpVariant}
-                        className="text-3xl font-bold text-center mb-8 text-gray-900 dark:text-gray-100"
+                    <motion.h2
+                        className="text-3xl font-bold text-center mb-4 text-[#0070c0]"
                     >
-                        Message Us
+                        Contact Us
                     </motion.h2>
-                    <Form {...form}>
-                        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+                    <motion.p
+                        className="text-center text-gray-600 mb-12 max-w-2xl mx-auto"
+                    >
+                        Ready to accelerate your business outcomes? Get in touch with our team of experts.
+                    </motion.p>
+
+                    <motion.div
+                        className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-12"
+                    >
+                        {contactInfo.map((info, index) => (
                             <motion.div 
-                                className="grid grid-cols-1 md:grid-cols-2 gap-6"
-                                variants={fadeUpVariant}
-                                transition={{ duration: 0.5, delay: 0.1 }}
+                                key={info.title} 
+                                variants={cardHoverVariant} 
+                                whileHover="hover"
                             >
-                                <motion.div
-                                    variants={formFieldVariant}
-                                    transition={{ duration: 0.3, delay: 0.2 }}
-                                >
+                                <Card className="bg-gray-50">
+                                    <CardContent className="p-6">
+                                        <div className="flex items-start space-x-4">
+                                            <div className="p-2 bg-[#0070c0]/10 rounded-lg">
+                                                <info.icon className="h-6 w-6 text-[#0070c0]" />
+                                            </div>
+                                            <div>
+                                                <h3 className="font-semibold text-gray-900 mb-2">
+                                                    {info.title}
+                                                </h3>
+                                                {Array.isArray(info.content) ? (
+                                                    <div className="space-y-1">
+                                                        {info.content.map((item, idx) => (
+                                                            <p key={idx} className="text-gray-600 text-sm">
+                                                                {item}
+                                                            </p>
+                                                        ))}
+                                                    </div>
+                                                ) : (
+                                                    <a
+                                                        href={info.link}
+                                                        className="text-[#0070c0] hover:text-[#005a9e] text-sm transition-colors"
+                                                    >
+                                                        {info.content}
+                                                    </a>
+                                                )}
+                                            </div>
+                                        </div>
+                                    </CardContent>
+                                </Card>
+                            </motion.div>
+                        ))}
+                    </motion.div>
+
+                    <motion.div
+                        className="bg-gray-50 rounded-lg p-6 shadow-lg"
+                    >
+                        <h3 className="text-2xl font-semibold text-[#0070c0] mb-6 text-center">Send Us a Message</h3>
+                        <Form {...form}>
+                            <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+                                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                                     <FormField
                                         control={form.control}
                                         name="name"
@@ -112,11 +188,6 @@ export default function MessageUs() {
                                             </FormItem>
                                         )}
                                     />
-                                </motion.div>
-                                <motion.div
-                                    variants={formFieldVariant}
-                                    transition={{ duration: 0.3, delay: 0.3 }}
-                                >
                                     <FormField
                                         control={form.control}
                                         name="email"
@@ -130,17 +201,8 @@ export default function MessageUs() {
                                             </FormItem>
                                         )}
                                     />
-                                </motion.div>
-                            </motion.div>
-                            <motion.div 
-                                className="grid grid-cols-1 md:grid-cols-2 gap-6"
-                                variants={fadeUpVariant}
-                                transition={{ duration: 0.5, delay: 0.2 }}
-                            >
-                                <motion.div
-                                    variants={formFieldVariant}
-                                    transition={{ duration: 0.3, delay: 0.4 }}
-                                >
+                                </div>
+                                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                                     <FormField
                                         control={form.control}
                                         name="phone"
@@ -154,11 +216,6 @@ export default function MessageUs() {
                                             </FormItem>
                                         )}
                                     />
-                                </motion.div>
-                                <motion.div
-                                    variants={formFieldVariant}
-                                    transition={{ duration: 0.3, delay: 0.5 }}
-                                >
                                     <FormField
                                         control={form.control}
                                         name="subject"
@@ -172,12 +229,7 @@ export default function MessageUs() {
                                             </FormItem>
                                         )}
                                     />
-                                </motion.div>
-                            </motion.div>
-                            <motion.div
-                                variants={fadeUpVariant}
-                                transition={{ duration: 0.5, delay: 0.3 }}
-                            >
+                                </div>
                                 <FormField
                                     control={form.control}
                                     name="message"
@@ -195,30 +247,28 @@ export default function MessageUs() {
                                         </FormItem>
                                     )}
                                 />
-                            </motion.div>
-                            <motion.div
-                                variants={fadeUpVariant}
-                                transition={{ duration: 0.5, delay: 0.4 }}
-                                whileHover={{ scale: 1.02 }}
-                                whileTap={{ scale: 0.98 }}
-                            >
-                                <Button
-                                    type="submit"
-                                    className="w-full bg-[#0070c0] hover:bg-[#005a9e] text-white"
-                                    disabled={isSubmitting}
+                                <motion.div
+                                    whileHover={{ scale: 1.02 }}
+                                    whileTap={{ scale: 0.98 }}
                                 >
-                                    {isSubmitting ? (
-                                        "Sending..."
-                                    ) : (
-                                        <>
-                                            Send Message
-                                            <Send className="ml-2 h-4 w-4" />
-                                        </>
-                                    )}
-                                </Button>
-                            </motion.div>
-                        </form>
-                    </Form>
+                                    <Button
+                                        type="submit"
+                                        className="w-full bg-[#0070c0] hover:bg-[#005a9e] text-white"
+                                        disabled={isSubmitting}
+                                    >
+                                        {isSubmitting ? (
+                                            "Sending..."
+                                        ) : (
+                                            <>
+                                                Send Message
+                                                <Send className="ml-2 h-4 w-4" />
+                                            </>
+                                        )}
+                                    </Button>
+                                </motion.div>
+                            </form>
+                        </Form>
+                    </motion.div>
                 </motion.div>
             </div>
         </section>

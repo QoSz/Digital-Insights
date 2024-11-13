@@ -52,7 +52,7 @@ export default function EngagementModels() {
                     variants={fadeInUp}
                     className="text-center mb-12"
                 >
-                    <h2 className="text-3xl font-bold text-gray-900 dark:text-gray-100 mb-4">
+                    <h2 className="text-3xl font-bold text-[#0070c0] dark:text-gray-100 mb-4">
                         How We Engage
                     </h2>
                     <p className="text-lg text-gray-600 dark:text-gray-300">
@@ -67,7 +67,8 @@ export default function EngagementModels() {
                             variants={fadeInUp}
                             initial="hidden"
                             animate="visible"
-                            transition={{ delay: index * 0.2 }}
+                            transition={{ duration: 0.3, delay: index * 0.1 }}
+                            whileHover={{ scale: 1.02 }}
                             className="bg-gray-50 dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden flex flex-col h-full"
                         >
                             <div className="p-6 flex-grow">
@@ -92,13 +93,6 @@ export default function EngagementModels() {
                                         </li>
                                     ))}
                                 </ul>
-                            </div>
-                            <div className="p-6 bg-gray-50 dark:bg-gray-700 mt-auto">
-                                <Button
-                                    className="w-full bg-[#0070c0] hover:bg-[#005a9e] text-white"
-                                >
-                                    Learn More
-                                </Button>
                             </div>
                         </motion.div>
                     ))}

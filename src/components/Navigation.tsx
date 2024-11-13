@@ -9,19 +9,21 @@ import {
     InfoIcon, 
     WrenchIcon, 
     LightbulbIcon, 
-    BuildingIcon, 
-    PhoneIcon 
+    HandshakeIcon, 
+    PhoneIcon,
+    UsersIcon 
 } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
 import { Switch } from "@/components/ui/switch"
 
 const links = [
-    { href: "/", label: "Home", icon: <HomeIcon className="h-4 w-4 mr-2" /> },
-    { href: "/about", label: "About Us", icon: <InfoIcon className="h-4 w-4 mr-2" /> },
-    { href: "/services", label: "Services", icon: <WrenchIcon className="h-4 w-4 mr-2" /> },
-    { href: "/solutions", label: "Solutions", icon: <LightbulbIcon className="h-4 w-4 mr-2" /> },
-    { href: "/industries", label: "Industries", icon: <BuildingIcon className="h-4 w-4 mr-2" /> },
+    { href: "#services", label: "Services", icon: <WrenchIcon className="h-4 w-4 mr-2" /> },
+    { href: "#solutions", label: "Solutions", icon: <LightbulbIcon className="h-4 w-4 mr-2" /> },
+    { href: "#engagement", label: "Engagement", icon: <HandshakeIcon className="h-4 w-4 mr-2" /> },
+    { href: "#about", label: "About", icon: <InfoIcon className="h-4 w-4 mr-2" /> },
+    { href: "#behind", label: "Behind", icon: <UsersIcon className="h-4 w-4 mr-2" /> },
+    { href: "#contact", label: "Contact", icon: <PhoneIcon className="h-4 w-4 mr-2" /> },
 ]
 
 export function Navigation() {
@@ -31,18 +33,11 @@ export function Navigation() {
         <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
             <div className="flex h-20 items-center justify-between px-4 w-full">
                 <div className="flex items-center">
-                    <Link href="/" className="flex flex-col items-center mr-8">
+                    <Link href="/" className="flex flex-col items-center">
                         <span className="text-lg font-bold">
                             Digit<span className="text-[#0070c0]">Al</span>
                         </span>
                         <span className="text-lg font-bold text-[#0070c0]">Insights</span>
-                    </Link>
-                    <Link
-                        href="/contact"
-                        className="hidden md:flex items-center text-base font-medium transition-colors hover:text-foreground/80 text-foreground/60"
-                    >
-                        <PhoneIcon className="h-4 w-4 mr-2" />
-                        Contact
                     </Link>
                 </div>
                 <nav className="hidden md:flex items-center space-x-6 text-base font-medium">
@@ -82,11 +77,7 @@ export function Navigation() {
                                 <span className="text-lg font-bold text-[#0070c0] ml-1">Insights</span>
                             </Link>
                             <nav className="flex flex-col space-y-3">
-                                {[...links, { 
-                                    href: "/contact", 
-                                    label: "Contact",
-                                    icon: <PhoneIcon className="h-4 w-4 mr-2" />
-                                }].map((link) => (
+                                {links.map((link) => (
                                     <Link
                                         key={link.href}
                                         href={link.href}

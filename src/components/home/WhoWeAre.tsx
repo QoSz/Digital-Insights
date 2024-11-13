@@ -56,7 +56,7 @@ export default function WhoWeAre() {
                             We Will Help You With
                         </h3>
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                            {services.map((service, index) => (
+                            {services.map((service) => (
                                 <div
                                     key={service.title}
                                     className="flex items-start space-x-3"
@@ -80,7 +80,7 @@ export default function WhoWeAre() {
                             To Deliver
                         </h3>
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                            {outcomes.map((outcome, index) => (
+                            {outcomes.map((outcome) => (
                                 <div
                                     key={outcome.title}
                                     className="flex items-start space-x-3"

@@ -128,7 +128,7 @@ export default function ContactUs() {
                     <motion.div
                         className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-12"
                     >
-                        {contactInfo.map((info, index) => (
+                        {contactInfo.map((info) => (
                             <motion.div 
                                 key={info.title} 
                                 variants={cardHoverVariant} 

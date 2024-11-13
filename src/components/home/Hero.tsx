@@ -82,7 +82,7 @@ export default function Hero() {
                                 asChild
                                 className="bg-[#0070c0] hover:bg-[#005a9e] text-white px-8 py-3 rounded-full text-base sm:text-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-300"
                             >
-                                <Link href="/contact">Get Started Today</Link>
+                                <Link href="#contact">Get Started Today</Link>
                             </Button>
                         </motion.div>
                     </motion.div>

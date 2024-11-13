@@ -1,14 +1,14 @@
 import Link from 'next/link'
-import { Facebook, Twitter, Linkedin, Mail, Phone, Globe } from 'lucide-react'
-import { HomeIcon, InfoIcon, WrenchIcon, LightbulbIcon, BuildingIcon } from 'lucide-react'
+import { Facebook, Twitter, Linkedin, Mail, Phone, Globe, UsersIcon } from 'lucide-react'
+import { HomeIcon, InfoIcon, WrenchIcon, LightbulbIcon, HandshakeIcon } from 'lucide-react'
 
 const navigationLinks = [
-    { href: '/', label: 'Home', icon: <HomeIcon className="h-4 w-4 mr-2" /> },
-    { href: '/about', label: 'About Us', icon: <InfoIcon className="h-4 w-4 mr-2" /> },
-    { href: '/services', label: 'Services', icon: <WrenchIcon className="h-4 w-4 mr-2" /> },
-    { href: '/solutions', label: 'Solutions', icon: <LightbulbIcon className="h-4 w-4 mr-2" /> },
-    { href: '/industries', label: 'Industries', icon: <BuildingIcon className="h-4 w-4 mr-2" /> },
-    { href: '/contact', label: 'Contact', icon: <Phone className="h-4 w-4 mr-2" /> },
+    { href: '#services', label: 'Services', icon: <WrenchIcon className="h-4 w-4 mr-2" /> },
+    { href: '#solutions', label: 'Solutions', icon: <LightbulbIcon className="h-4 w-4 mr-2" /> },
+    { href: '#engagement', label: 'Engagement', icon: <HandshakeIcon className="h-4 w-4 mr-2" /> },
+    { href: '#about', label: 'About', icon: <InfoIcon className="h-4 w-4 mr-2" /> },
+    { href: '#behind', label: 'Behind', icon: <UsersIcon className="h-4 w-4 mr-2" /> },
+    { href: '#contact', label: 'Contact', icon: <Phone className="h-4 w-4 mr-2" /> },
 ]
 
 const socialLinks = [

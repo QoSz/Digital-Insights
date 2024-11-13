@@ -110,7 +110,7 @@ export default function EngagementModels() {
                         size="lg"
                         className="bg-[#0070c0] hover:bg-[#005a9e] text-white"
                     >
-                        <a href="/contact">Discuss Your Project</a>
+                        <a href="#contact">Discuss Your Project</a>
                     </Button>
                 </motion.div>
             </div>

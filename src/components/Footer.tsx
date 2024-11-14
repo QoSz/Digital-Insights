@@ -1,13 +1,14 @@
 import Link from 'next/link'
-import { Facebook, Twitter, Linkedin, Mail, Phone, Globe, UsersIcon } from 'lucide-react'
-import { InfoIcon, WrenchIcon, LightbulbIcon, HandshakeIcon } from 'lucide-react'
+import { Facebook, Twitter, Linkedin, Mail, Phone, Globe } from 'lucide-react'
+import { InfoIcon, WrenchIcon, LightbulbIcon, Target, Users } from 'lucide-react'
 
+// Match the navigation links from Navigation.tsx
 const navigationLinks = [
+    { href: '#whoweare', label: 'Who We Are', icon: <InfoIcon className="h-4 w-4 mr-2" /> },
     { href: '#services', label: 'Services', icon: <WrenchIcon className="h-4 w-4 mr-2" /> },
     { href: '#solutions', label: 'Solutions', icon: <LightbulbIcon className="h-4 w-4 mr-2" /> },
-    { href: '#engagement', label: 'Engagement', icon: <HandshakeIcon className="h-4 w-4 mr-2" /> },
-    { href: '#about', label: 'About', icon: <InfoIcon className="h-4 w-4 mr-2" /> },
-    { href: '#behind', label: 'Behind', icon: <UsersIcon className="h-4 w-4 mr-2" /> },
+    { href: '#approach', label: 'Approach', icon: <Target className="h-4 w-4 mr-2" /> },
+    { href: '#leadership', label: 'Leadership', icon: <Users className="h-4 w-4 mr-2" /> },
     { href: '#contact', label: 'Contact', icon: <Phone className="h-4 w-4 mr-2" /> },
 ]
 
@@ -35,7 +36,7 @@ export function Footer() {
                         <div className="space-y-1.5">
                             <a
                                 href="mailto:info@digital-insights.ai"
-                                className="flex items-center text-base hover:text-[#0070c0] transition-colors"
+                                className="flex items-center py-2 text-base hover:text-[#0070c0] transition-colors"
                             >
                                 <Mail className="h-5 w-5 mr-2" />
                                 info@digital-insights.ai
@@ -44,7 +45,7 @@ export function Footer() {
                                 <Phone className="h-5 w-5 mr-2 mt-1" />
                                 <div className="space-y-0.5">
                                     <p>US: +1480-225-xxxx</p>
-                                    <p>UAE: +971 4 553 xxxx</p>
+                                    <p className="py-2">UAE: +971 4 553 xxxx</p>
                                     <p>Africa: +254-705-xxxxxx</p>
                                 </div>
                             </div>
@@ -59,7 +60,7 @@ export function Footer() {
                                 <li key={link.href}>
                                     <Link
                                         href={link.href}
-                                        className="flex items-center text-base hover:text-[#0070c0] transition-colors inline-block"
+                                        className="flex items-center py-1 text-base hover:text-[#0070c0] transition-colors"
                                     >
                                         {link.icon}
                                         {link.label}
@@ -86,7 +87,7 @@ export function Footer() {
                         </div>
                         <a
                             href="https://www.digital-insights.ai"
-                            className="text-base hover:text-[#0070c0] transition-colors flex items-center"
+                            className="py-2 text-base hover:text-[#0070c0] transition-colors flex items-center"
                         >
                             <Globe className="h-5 w-5 mr-2" />
                             www.digital-insights.ai

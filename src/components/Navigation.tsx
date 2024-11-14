@@ -7,23 +7,84 @@ import {
     MenuIcon,
     InfoIcon, 
     WrenchIcon, 
-    LightbulbIcon, 
-    HandshakeIcon, 
+    LightbulbIcon,
     PhoneIcon,
-    UsersIcon 
+    Users,
+    Target,
+    UserIcon,
+    ChevronDown
 } from "lucide-react"
 import { Button } from "@/components/ui/button"
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
+import { Sheet, SheetContent, SheetTrigger, SheetTitle, SheetDescription } from "@/components/ui/sheet"
 import { Switch } from "@/components/ui/switch"
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu"
 
-const links = [
+const navigationLinks = [
     { href: "#services", label: "Services", icon: <WrenchIcon className="h-4 w-4 mr-2" /> },
     { href: "#solutions", label: "Solutions", icon: <LightbulbIcon className="h-4 w-4 mr-2" /> },
-    { href: "#engagement", label: "Engagement", icon: <HandshakeIcon className="h-4 w-4 mr-2" /> },
-    { href: "#about", label: "About", icon: <InfoIcon className="h-4 w-4 mr-2" /> },
-    { href: "#behind", label: "Behind", icon: <UsersIcon className="h-4 w-4 mr-2" /> },
+    { href: "#approach", label: "Approach", icon: <Target className="h-4 w-4 mr-2" /> },
     { href: "#contact", label: "Contact", icon: <PhoneIcon className="h-4 w-4 mr-2" /> },
 ]
+
+const aboutDropdownItems = [
+    { label: "Who We Are", href: "#whoweare", icon: <InfoIcon className="h-4 w-4 mr-2" /> },
+    { label: "Leadership", href: "#leadership", icon: <Users className="h-4 w-4 mr-2" /> },
+]
+
+function DesktopDropdown() {
+    return (
+        <div className="relative group inline-block">
+            <button className="flex items-center transition-colors hover:text-foreground/80 text-foreground/60">
+                <UserIcon className="h-4 w-4 mr-2" />
+                About
+                <ChevronDown className="h-4 w-4 ml-1" />
+            </button>
+            <div className="absolute right-0 mt-2 w-48 bg-background rounded-md shadow-lg py-1 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+                {aboutDropdownItems.map((item) => (
+                    <Link
+                        key={item.href}
+                        href={item.href}
+                        className="flex items-center px-4 py-2 text-sm text-foreground/60 hover:text-foreground/80 hover:bg-accent"
+                    >
+                        {item.icon}
+                        {item.label}
+                    </Link>
+                ))}
+            </div>
+        </div>
+    )
+}
+
+function MobileDropdown({ onMobileClick }: { onMobileClick?: () => void }) {
+    return (
+        <DropdownMenu>
+            <DropdownMenuTrigger className="flex items-center text-base font-medium text-muted-foreground transition-colors hover:text-foreground">
+                <UserIcon className="h-4 w-4 mr-2" />
+                About
+                <ChevronDown className="h-4 w-4 ml-1" />
+            </DropdownMenuTrigger>
+            <DropdownMenuContent>
+                {aboutDropdownItems.map((item) => (
+                    <DropdownMenuItem key={item.href} asChild>
+                        <Link
+                            href={item.href}
+                            className="flex items-center w-full"
+                            onClick={onMobileClick}
+                        >
+                            {item.icon}
+                            {item.label}
+                        </Link>
+                    </DropdownMenuItem>
+                ))}
+            </DropdownMenuContent>
+        </DropdownMenu>
+    )
+}
 
 export function Navigation() {
     const [isOpen, setIsOpen] = useState(false)
@@ -39,8 +100,8 @@ export function Navigation() {
                         <span className="text-lg font-bold text-[#0070c0]">Insights</span>
                     </Link>
                 </div>
-                <nav className="hidden md:flex items-center space-x-6 text-base font-medium">
-                    {links.map((link) => (
+                <nav className="hidden md:flex items-center space-x-6 text-base font-medium relative">
+                    {navigationLinks.map((link) => (
                         <Link
                             key={link.href}
                             href={link.href}
@@ -50,6 +111,7 @@ export function Navigation() {
                             {link.label}
                         </Link>
                     ))}
+                    <DesktopDropdown />
                     <ThemeToggle />
                 </nav>
                 <div className="flex items-center md:hidden">
@@ -65,6 +127,12 @@ export function Navigation() {
                             </Button>
                         </SheetTrigger>
                         <SheetContent side="right" className="pr-0">
+                            <SheetTitle className="sr-only">
+                                Navigation Menu
+                            </SheetTitle>
+                            <SheetDescription className="sr-only">
+                                Mobile navigation menu for accessing site sections
+                            </SheetDescription>
                             <Link
                                 href="/"
                                 className="flex items-center mb-4"
@@ -76,7 +144,7 @@ export function Navigation() {
                                 <span className="text-lg font-bold text-[#0070c0] ml-1">Insights</span>
                             </Link>
                             <nav className="flex flex-col space-y-3">
-                                {links.map((link) => (
+                                {navigationLinks.map((link) => (
                                     <Link
                                         key={link.href}
                                         href={link.href}
@@ -87,6 +155,7 @@ export function Navigation() {
                                         {link.label}
                                     </Link>
                                 ))}
+                                <MobileDropdown onMobileClick={() => setIsOpen(false)} />
                             </nav>
                         </SheetContent>
                     </Sheet>

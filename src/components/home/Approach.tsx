@@ -42,7 +42,7 @@ const fadeInUp = {
     visible: { opacity: 1, y: 0 }
 }
 
-export default function EngagementModels() {
+export default function Approach() {
     return (
         <section className="py-16 bg-white dark:bg-gray-900">
             <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -53,7 +53,7 @@ export default function EngagementModels() {
                     className="text-center mb-12"
                 >
                     <h2 className="text-3xl font-bold text-[#0070c0] dark:text-gray-100 mb-4">
-                        How We Engage
+                        Our Approach
                     </h2>
                     <p className="text-lg text-gray-600 dark:text-gray-300">
                         We offer three models of engagement to best suit your needs
@@ -116,4 +116,4 @@ export default function EngagementModels() {
             </div>
         </section>
     )
-}
+} 

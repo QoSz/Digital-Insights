@@ -105,7 +105,7 @@ export default function ContactUs() {
     }
 
     return (
-        <section className="py-16 bg-white dark:bg-gray-900">
+        <section className="py-16 bg-gray-50 dark:bg-gray-900">
             <div className="container mx-auto px-4 sm:px-6 lg:px-8">
                 <motion.div
                     initial="hidden"
@@ -134,7 +134,7 @@ export default function ContactUs() {
                                 variants={cardHoverVariant} 
                                 whileHover="hover"
                             >
-                                <Card className="bg-gray-50 dark:bg-gray-800">
+                                <Card className="bg-white dark:bg-gray-800">
                                     <CardContent className="p-6">
                                         <div className="flex items-start space-x-4">
                                             <div className="p-2 bg-[#0070c0]/10 rounded-lg">
@@ -169,9 +169,9 @@ export default function ContactUs() {
                     </motion.div>
 
                     <motion.div
-                        className="bg-gray-50 dark:bg-gray-800 rounded-lg p-6 shadow-lg"
+                        className="bg-white dark:bg-gray-800 rounded-lg p-6 shadow-lg"
                     >
-                        <h3 className="text-2xl font-semibold text-[#0070c0] mb-6 text-center dark:text-gray-100">Send Us a Message</h3>
+                        <h3 className="text-2xl font-semibold text-[#0070c0] mb-6 text-center dark:text-gray-100">Let's Have a Discussion</h3>
                         <Form {...form}>
                             <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
                                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">

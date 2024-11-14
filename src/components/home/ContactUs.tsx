@@ -171,7 +171,7 @@ export default function ContactUs() {
                     <motion.div
                         className="bg-white dark:bg-gray-800 rounded-lg p-6 shadow-lg"
                     >
-                        <h3 className="text-2xl font-semibold text-[#0070c0] mb-6 text-center dark:text-gray-100">Let's Have a Discussion</h3>
+                        <h3 className="text-2xl font-semibold text-[#0070c0] mb-6 text-center dark:text-gray-100">Let&apos;s Have a Discussion</h3>
                         <Form {...form}>
                             <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
                                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">

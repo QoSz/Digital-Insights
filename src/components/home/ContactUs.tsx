@@ -5,7 +5,7 @@ import { motion } from 'framer-motion'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import * as z from 'zod'
-import { Send, Mail, Phone, Globe, MapPin } from 'lucide-react'
+import { Send, Mail, Phone, Globe, MapPin, MessageSquare, MessageCircleMore } from 'lucide-react'
 import { Button } from "@/components/ui/button"
 import {
     Form,
@@ -117,7 +117,10 @@ export default function ContactUs() {
                     <motion.h2
                         className="text-3xl font-bold text-center mb-4 text-[#0070c0] dark:text-gray-100"
                     >
-                        Contact Us
+                        <div className="flex items-center justify-center gap-2">
+                            <MessageSquare className="h-8 w-8" />
+                            Contact Us
+                        </div>
                     </motion.h2>
                     <motion.p
                         className="text-center text-gray-600 dark:text-gray-400 mb-12 max-w-2xl mx-auto"
@@ -171,7 +174,12 @@ export default function ContactUs() {
                     <motion.div
                         className="bg-white dark:bg-gray-800 rounded-lg p-6 shadow-lg"
                     >
-                        <h3 className="text-2xl font-semibold text-[#0070c0] mb-6 text-center dark:text-gray-100">Let&apos;s Have a Discussion</h3>
+                        <h3 className="text-2xl font-semibold text-[#0070c0] mb-6 text-center dark:text-gray-100">
+                            <div className="flex items-center justify-center gap-2">
+                                <MessageCircleMore className="h-6 w-6" />
+                                Let&apos;s Have a Discussion
+                            </div>
+                        </h3>
                         <Form {...form}>
                             <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
                                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">

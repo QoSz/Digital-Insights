@@ -1,7 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { BarChart2, Users, Truck, Check } from 'lucide-react'
+import { BarChart2, Users, Truck, Check, Workflow } from 'lucide-react'
 import { Button } from "@/components/ui/button"
 
 const engagementModels = [
@@ -53,7 +53,10 @@ export default function Approach() {
                     className="text-center mb-12"
                 >
                     <h2 className="text-3xl font-bold text-[#0070c0] dark:text-gray-100 mb-4">
-                        Our Approach
+                        <div className="flex items-center justify-center gap-2">
+                            <Workflow className="h-8 w-8" />
+                            Our Approach
+                        </div>
                     </h2>
                     <p className="text-lg text-gray-600 dark:text-gray-300">
                         We offer three models of engagement to best suit your needs

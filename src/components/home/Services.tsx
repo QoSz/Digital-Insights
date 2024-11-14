@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { X } from 'lucide-react'
+import { X, Settings } from 'lucide-react'
 import { Button } from "@/components/ui/button"
 
 const services = [
@@ -141,7 +141,10 @@ export default function Services() {
                     transition={{ duration: 0.5 }}
                     className="text-3xl font-bold mb-8 text-center text-[#0070c0] dark:text-gray-100"
                 >
-                    Our Services
+                    <div className="flex items-center justify-center gap-2">
+                        <Settings className="h-8 w-8" />
+                        Our Services
+                    </div>
                 </motion.h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                     {services.map((service, index) => (

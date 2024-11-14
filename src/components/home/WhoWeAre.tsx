@@ -1,7 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { Lightbulb, Target, TrendingUp, Users, Shield, LineChart, CheckCircle, Code, TrendingDown, UserCog, ArrowRight } from 'lucide-react'
+import { Lightbulb, Target, TrendingUp, Users, Shield, LineChart, CheckCircle, Code, TrendingDown, UserCog, ArrowRight, Briefcase, HelpingHand, Truck } from 'lucide-react'
 
 const fadeInUp = {
     hidden: { opacity: 0, y: 20 },
@@ -38,7 +38,12 @@ export default function WhatWeDo() {
                     variants={fadeInUp}
                     className="text-center mb-12"
                 >
-                    <h2 className="text-3xl font-bold text-[#0070c0] dark:text-white mb-6">What We Do</h2>
+                    <h2 className="text-3xl font-bold text-[#0070c0] dark:text-white mb-6">
+                        <div className="flex items-center justify-center gap-2">
+                            <Briefcase className="h-8 w-8" />
+                            What We Do
+                        </div>
+                    </h2>
                     <p className="text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
                         We provide Management Consulting for Board, C-Suite and Senior Executives. Our expertise lies in crafting and executing strategies that help accelerate business outcomes.
                     </p>
@@ -55,7 +60,10 @@ export default function WhatWeDo() {
                     >
                         <div className="bg-white dark:bg-gray-800 rounded-lg p-8 shadow-md h-full border-t-4 border-[#0070c0]">
                             <h3 className="text-2xl font-semibold text-gray-900 dark:text-gray-100 mb-6">
-                                We Will Help You With
+                                <div className="flex items-center gap-2">
+                                    <HelpingHand className="h-8 w-8 text-[#0070c0]" />
+                                    We Will Help You With
+                                </div>
                             </h3>
                             <div className="grid gap-6">
                                 {services.map((service) => (
@@ -92,7 +100,10 @@ export default function WhatWeDo() {
                     >
                         <div className="bg-white dark:bg-gray-800 rounded-lg p-8 shadow-md h-full border-t-4 border-[#0070c0]">
                             <h3 className="text-2xl font-semibold text-gray-900 dark:text-gray-100 mb-6">
-                                To Deliver
+                                <div className="flex items-center gap-2">
+                                    <Truck className="h-8 w-8 text-[#0070c0]" />
+                                    To Deliver
+                                </div>
                             </h3>
                             <div className="grid gap-6">
                                 {outcomes.map((outcome) => (

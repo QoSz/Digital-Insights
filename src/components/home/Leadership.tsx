@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion'
 import { useRef, useState } from 'react'
-import { ChevronDown, ChevronUp } from 'lucide-react'
+import { ChevronDown, ChevronUp, Users2 } from 'lucide-react'
 
 export default function Leadership() {
     const containerRef = useRef(null)
@@ -30,7 +30,10 @@ export default function Leadership() {
                     transition={{ duration: 0.5 }}
                     className="text-3xl font-bold mb-8 text-center text-[#0070c0] dark:text-white"
                 >
-                    Leadership
+                    <div className="flex items-center justify-center gap-2">
+                        <Users2 className="h-8 w-8" />
+                        Leadership
+                    </div>
                 </motion.h2>
                 <div className="grid grid-cols-1 gap-8 mb-12">
                     {leaders.slice(0, isExpanded ? leaders.length : 1).map((leader, index) => (

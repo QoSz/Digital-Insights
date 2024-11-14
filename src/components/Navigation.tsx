@@ -6,11 +6,11 @@ import { useTheme } from "next-themes"
 import { 
     MenuIcon,
     InfoIcon, 
-    WrenchIcon, 
+    Settings, 
     LightbulbIcon,
     PhoneIcon,
     Users,
-    Target,
+    Workflow,
     UserIcon,
     ChevronDown
 } from "lucide-react"
@@ -25,9 +25,9 @@ import {
 } from "@/components/ui/dropdown-menu"
 
 const navigationLinks = [
-    { href: "#services", label: "Services", icon: <WrenchIcon className="h-4 w-4 mr-2" /> },
+    { href: "#services", label: "Services", icon: <Settings className="h-4 w-4 mr-2" /> },
     { href: "#solutions", label: "Solutions", icon: <LightbulbIcon className="h-4 w-4 mr-2" /> },
-    { href: "#approach", label: "Approach", icon: <Target className="h-4 w-4 mr-2" /> },
+    { href: "#approach", label: "Approach", icon: <Workflow className="h-4 w-4 mr-2" /> },
     { href: "#contact", label: "Contact", icon: <PhoneIcon className="h-4 w-4 mr-2" /> },
 ]
 

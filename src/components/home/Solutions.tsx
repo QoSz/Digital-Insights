@@ -2,23 +2,25 @@
 
 import React from 'react'
 import { motion } from 'framer-motion'
-import { CheckCircle } from 'lucide-react'
+import { CheckCircle, Lightbulb, Building2, BrainCircuit, Cloud, Database, Shield, Blocks } from 'lucide-react'
 
 const solutions = [
     {
         title: "Generative AI Solutions",
         description: "Leveraging cutting-edge AI technologies for business transformation.",
+        icon: BrainCircuit,
         examples: [
             "Generative accelerators",
             "Machine and deep learning",
             "Intelligent Automation",
-            "GenAI workbench – LLMs, RAG, SLMs, Prompt, LLMOps",
+            "GenAI workbench - LLMs, RAG, SLMs, Prompt, LLMOps",
             "Copilot Integrations- AutoDev, Q Developer and Devin"
         ]
     },
     {
         title: "Cloud Computing Solutions",
         description: "Enabling digital transformation through comprehensive cloud services.",
+        icon: Cloud,
         examples: [
             "Public, private, and hybrid cloud platforms",
             "Cloud migration and optimization",
@@ -30,6 +32,7 @@ const solutions = [
     {
         title: "Data Engineering & Analytics",
         description: "Transforming data into actionable insights for business growth.",
+        icon: Database,
         examples: [
             "Data architecture and engineering",
             "Business intelligence solutions",
@@ -41,6 +44,7 @@ const solutions = [
     {
         title: "Cybersecurity and Compliance",
         description: "Ensuring robust security and regulatory compliance.",
+        icon: Shield,
         examples: [
             "Security architecture design",
             "Compliance frameworks implementation",
@@ -52,6 +56,7 @@ const solutions = [
     {
         title: "Low Code Development",
         description: "Accelerating development through low-code platforms.",
+        icon: Blocks,
         examples: [
             "Rapid application development",
             "Process automation",
@@ -105,7 +110,10 @@ export default function Solutions() {
                     variants={fadeUpVariant}
                 >
                     <h2 className="text-3xl font-bold text-[#0070c0] dark:text-gray-100 mb-4">
-                        Solutions we have delivered
+                        <div className="flex items-center justify-center gap-2">
+                            <Lightbulb className="h-8 w-8" />
+                            Solutions we have delivered
+                        </div>
                     </h2>
                     <p className="text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto italic">
                         We have driven Digital Transformations in multiple industries by crafting technology enabled solutions utilizing:
@@ -129,7 +137,10 @@ export default function Solutions() {
                                     variants={fadeUpVariant}
                                     className="text-xl font-semibold mb-4 text-[#0070c0] dark:text-[#00a2ff]"
                                 >
-                                    {solution.title}
+                                    <div className="flex items-center gap-2">
+                                        {React.createElement(solution.icon, { className: "h-8 w-8" })}
+                                        {solution.title}
+                                    </div>
                                 </motion.h3>
                                 <ul className="space-y-2">
                                     {solution.examples.map((example, idx) => (
@@ -156,7 +167,12 @@ export default function Solutions() {
                     viewport={{ once: true }}
                     variants={fadeUpVariant}
                 >
-                    <h3 className="text-xl font-semibold mb-4 text-[#0070c0] dark:text-[#00a2ff]">Industries We Serve</h3>
+                    <h3 className="text-xl font-semibold mb-4 text-[#0070c0] dark:text-[#00a2ff]">
+                        <div className="flex items-center justify-center gap-2">
+                            <Building2 className="h-6 w-6" />
+                            Industries We Serve
+                        </div>
+                    </h3>
                     <div className="flex flex-wrap justify-center gap-4">
                         {industries.map((industry, index) => (
                             <motion.span
